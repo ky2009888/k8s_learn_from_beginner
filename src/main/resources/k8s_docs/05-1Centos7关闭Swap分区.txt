@@ -1,0 +1,9 @@
+CentOS7关闭Swap分区
+1、注释/etc/fstab关于swap的配置如下:
+#/dev/mapper/centos-swap swap                    swap    defaults        0 0
+2、修改fstab文件,执行如下命令
+	echo vm.swappiness=0 >> /etc/sysctl.conf
+3、重启Centos机器
+	sudo reboot
+4、验证(Swap行均为0)
+	free -m
